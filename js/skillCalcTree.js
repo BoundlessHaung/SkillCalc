@@ -171,8 +171,17 @@ function initializeNode(node){
 									  });				
 }
 
+function repaintTreeText_callback(node){
+	var sourceData = eval(node.data.idName);
 
-
+	node.data.displayName = sourceData.displayName;
+	node.data.allText = sourceData.allText;
+	node.data.zeroText = sourceData.zeroText;
+	node.data.thirtyText = sourceData.thirtyText;
+	node.data.sixtyText = sourceData.sixtyText;
+	node.data.ninetyText = sourceData.ninetyText;
+	node.data.hundredText = sourceData.hundredText;
+}
 
 /*Crafting Trees*/
 var artisanTree = new Tree(artisan);
@@ -208,7 +217,6 @@ huntingTree.add(animalLore,hunting,huntingTree.traverseBF);
 huntingTree.add(procuration,animalLore,huntingTree.traverseBF);
 huntingTree.add(warHorseHandling,procuration,huntingTree.traverseBF);
 huntingTree.add(tailoring,procuration,huntingTree.traverseBF);
-
 
 /*Combat Trees*/
 var chivalryTree = new Tree(chivalry);
@@ -249,3 +257,4 @@ var horsebackRidingTree = new Tree(horsebackRiding);
 var pietyTree = new Tree(piety);
 var mentoringTree = new Tree(mentoring);
 var artsTree = new Tree(arts);
+

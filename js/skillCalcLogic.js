@@ -574,7 +574,6 @@ function saveString(){
 	$('#saveString').val(saveStr);
 }
 
-//eyJhcnRpc2FuIjoiNjIiLCJkaWdnaW5nIjoiNDQiLCJtaW5pbmciOiIyMCIsInN0YXRDYXAiOiIxMDAwIiwic3RyZW5ndGgiOiIxMCIsImFnaWxpdHkiOiIxMCIsImNvbnN0aXR1dGlvbiI6IjEwIiwiaW50ZWxsaWdlbmNlIjoiMTAiLCJ3aWxscG93ZXIiOiIxMCJ9
 function loadString(){
 	var loadStr = $('#saveString').val();
 	loadStr = atob(loadStr);
@@ -613,4 +612,60 @@ function loadString(){
 			}
 		}
 	});
+}
+
+//for pulling the language
+function qs(key) {
+    key = key.replace(/[*+?^$.\[\]{}()|\\\/]/g, "\\$&"); // escape RegEx meta chars
+    var match = location.search.match(new RegExp("[?&]"+key+"=([^&]+)(&|$)"));
+    return match && decodeURIComponent(match[1].replace(/\+/g, " "));
+}
+
+
+function changeLang(lang){
+	$.getScript( "lang/" + lang +".js")
+		.done(function(){
+			console.log(123);
+			artisanTree.traverseBF(repaintTreeText_callback);
+			naturesLoreTree.traverseBF(repaintTreeText_callback);
+			huntingTree.traverseBF(repaintTreeText_callback);
+			chivalryTree.traverseBF(repaintTreeText_callback);
+			warriorTree.traverseBF(repaintTreeText_callback);
+			chainmailArmorsTree.traverseBF(repaintTreeText_callback);
+			scaleArmorsTree.traverseBF(repaintTreeText_callback);
+			plateArmorsTree.traverseBF(repaintTreeText_callback);
+			equipmentMaintainTree.traverseBF(repaintTreeText_callback);
+			battleSurvivalTree.traverseBF(repaintTreeText_callback);
+			drillTree.traverseBF(repaintTreeText_callback);
+			movementTree.traverseBF(repaintTreeText_callback);
+			swimmingTree.traverseBF(repaintTreeText_callback);
+			generalActionsTree.traverseBF(repaintTreeText_callback);
+			horsebackRidingTree.traverseBF(repaintTreeText_callback);
+			authorityTree.traverseBF(repaintTreeText_callback);
+			pietyTree.traverseBF(repaintTreeText_callback);
+			mentoringTree.traverseBF(repaintTreeText_callback);
+			artsTree.traverseBF(repaintTreeText_callback);
+			
+			$("#summaryTable").find("tr:gt(0)").remove();
+			
+			manageSummaryTable(artisanTree._root);
+			manageSummaryTable(naturesLoreTree._root);;
+			manageSummaryTable(huntingTree._root);
+			manageSummaryTable(chivalryTree._root);
+			manageSummaryTable(warriorTree._root);
+			manageSummaryTable(chainmailArmorsTree._root);
+			manageSummaryTable(scaleArmorsTree._root);
+			manageSummaryTable(plateArmorsTree._root);
+			manageSummaryTable(equipmentMaintainTree._root);
+			manageSummaryTable(battleSurvivalTree._root);
+			manageSummaryTable(drillTree._root);
+			manageSummaryTable(movementTree._root);
+			manageSummaryTable(generalActionsTree._root);
+			manageSummaryTable(swimmingTree._root);
+			manageSummaryTable(authorityTree._root);
+			manageSummaryTable(horsebackRidingTree._root);
+			manageSummaryTable(pietyTree._root);
+			manageSummaryTable(mentoringTree._root);
+			manageSummaryTable(artsTree._root);
+		});
 }

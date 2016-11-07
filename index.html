@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,34 +14,13 @@
 	<link rel="stylesheet" type="text/css" href="css/skillCalc.css">
 	<script>
 		//Initialize Jquery Elements
-		//eyJhcnRpc2FuIjoiMTAwIiwiY2FycGVudHJ5IjoiMTAwIiwiYm93Y3JhZnQiOiIxMDAiLCJjb25zdHJ1Y3Rpb24iOiIxMDAiLCJtYXNvbnJ5IjoiMTAwIiwiYnVpbGRpbmdNYWludGFpbiI6IjEwMCIsImRpZ2dpbmciOiIxMDAiLCJuYXR1cmVzTG9yZSI6IjYwIiwiaGVyYmFsaXNtIjoiNjAiLCJoZWFsaW5nIjoiMTAwIiwiYWxjaGVteSI6IjgwIiwic3RhdENhcCI6IjEwMDAiLCJzdHJlbmd0aCI6IjU1IiwiYWdpbGl0eSI6IjQwIiwiY29uc3RpdHV0aW9uIjoiMjAiLCJpbnRlbGxpZ2VuY2UiOiIxMCIsIndpbGxwb3dlciI6IjI1In0=
+		//eyJtb3ZlbWVudCI6IjEwMCIsImdlbmVyYWxBY3Rpb25zIjoiMTAwIiwiaG9yc2ViYWNrUmlkaW5nIjoiMTAwIiwic3dpbW1pbmciOiIxMDAiLCJhdXRob3JpdHkiOiIxMDAiLCJwaWV0eSI6IjEwMCIsIm1lbnRvcmluZyI6IjEwMCIsImFydHMiOiIxMDAiLCJzdGF0Q2FwIjoiMTAwMCIsInN0cmVuZ3RoIjoiNTUiLCJhZ2lsaXR5IjoiNDAiLCJjb25zdGl0dXRpb24iOiIyMCIsImludGVsbGlnZW5jZSI6IjEwIiwid2lsbHBvd2VyIjoiMjUifQ==
 		var currentNode;
 		var f_rid = 1;
 		
 		$( function() {
 			loadCrafting();
-			
-			//initialize summary table rows
-			manageSummaryTable(artisanTree._root);
-			manageSummaryTable(naturesLoreTree._root);;
-			manageSummaryTable(huntingTree._root);
-			manageSummaryTable(chivalryTree._root);
-			manageSummaryTable(warriorTree._root);
-			manageSummaryTable(chainmailArmorsTree._root);
-			manageSummaryTable(scaleArmorsTree._root);
-			manageSummaryTable(plateArmorsTree._root);
-			manageSummaryTable(equipmentMaintainTree._root);
-			manageSummaryTable(battleSurvivalTree._root);
-			manageSummaryTable(drillTree._root);
-			manageSummaryTable(movementTree._root);
-			manageSummaryTable(generalActionsTree._root);
-			manageSummaryTable(swimmingTree._root);
-			manageSummaryTable(authorityTree._root);
-			manageSummaryTable(horsebackRidingTree._root);
-			manageSummaryTable(pietyTree._root);
-			manageSummaryTable(mentoringTree._root);
-			manageSummaryTable(artsTree._root);
-		} );
+		} );		
 		
 		$( function() {
 			$( document ).tooltip({
@@ -64,6 +43,7 @@
 				e.preventDefault();
 			});
 		} );
+				
 	</script>
 	<style type="text/css">
         .ui-spinner-input{
@@ -303,6 +283,17 @@
 		<div id='artsTree' class='tree leaf'></div>
 		<span class="stretch"></span>
 	</div>
+</script>
+<script>		
+$( function() {
+	var lang = qs("lang");
+	if(lang != null){
+		changeLang(lang);
+	}else{
+		changeLang("zh-cn");
+	}
+	
+ });
 </script>
 </body>
 </html>
